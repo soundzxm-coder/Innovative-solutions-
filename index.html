@@ -366,6 +366,29 @@
     font-size:15.5px;
     max-width:56ch;
   }
+  .service-row ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    max-width:56ch;
+  }
+  .service-row ul li{
+    position:relative;
+    padding-left:22px;
+    margin:0 0 12px;
+    color:var(--paper-muted);
+    font-size:15.5px;
+  }
+  .service-row ul li:last-child{margin-bottom:0;}
+  .service-row ul li::before{
+    content:"";
+    position:absolute;
+    left:0; top:8px;
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--gold);
+  }
+  .service-row ul strong{color:var(--white); font-weight:600;}
 
   /* -------- Mission / Vision -------- */
   .mv{
@@ -533,6 +556,45 @@
     .hero-facts{gap:22px;}
     .hero-facts div{max-width:140px;}
   }
+
+  /* -------- Back to top button -------- */
+  .back-to-top{
+    position:fixed;
+    right:28px;
+    bottom:28px;
+    z-index:50;
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--gold);
+    color:var(--ink);
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    box-shadow:0 12px 28px rgba(0,0,0,0.28);
+    opacity:0;
+    transform:translateY(12px);
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease, background .18s ease;
+  }
+  .back-to-top.show{
+    opacity:1;
+    transform:translateY(0);
+    pointer-events:auto;
+  }
+  .back-to-top:hover{background:var(--gold-deep);}
+  .back-to-top svg{width:18px; height:18px;}
+
+  @media (max-width: 640px){
+    .back-to-top{
+      right:18px;
+      bottom:18px;
+      width:44px;
+      height:44px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -561,17 +623,11 @@
   <div class="hexfield" aria-hidden="true" id="hexfield-hero"></div>
   <div class="wrap hero-inner">
     <div>
-      <p class="eyebrow">100% Black-owned &middot; Roodepoort, Gauteng</p>
-      <h1>Clean power, built for <em>Southern Africa's</em> next chapter</h1>
-      <p class="lede">We design and deliver solar solutions for businesses and schools, then stand behind them &mdash; through installation, repair, and end-of-life recycling.</p>
+      <h1>Technology that teaches, <em>impact that lasts</em></h1>
+      <p class="lede">We equip Skills Development Providers with reliable ICT infrastructure &mdash; devices, networking, lab setups, and e-learning enablement &mdash; backed by a dedicated solar division so training never stops for power.</p>
       <div class="hero-ctas">
         <a class="btn btn-solid" href="#contact">Get a quote</a>
         <a class="btn btn-ghost" href="#services">See what we do</a>
-      </div>
-      <div class="hero-facts">
-        <div><b>Business &amp; education</b><span>Solar sized to real operating needs, not one-size panels</span></div>
-        <div><b>Install to end-of-life</b><span>A partnered division installs; IS&amp;E repairs and recycles</span></div>
-        <div><b>Southern Africa</b><span>Working toward a region-wide green energy future</span></div>
       </div>
     </div>
     <div class="hero-art">
@@ -587,13 +643,14 @@
   <div class="wrap overview-grid">
     <div>
       <p class="kicker">Company overview</p>
-      <h2>A solar company built on delivery, not just installs.</h2>
+      <h2>An ICT partner built on delivery, not just installs.</h2>
     </div>
     <div class="overview-copy">
-      <p>Innovative Solutions &amp; Electronics is a 100% black-owned company. Our core expertise lies in providing cutting-edge solar solutions that address various business and educational needs, ensuring efficiency and technological advancement for our clients.</p>
-      <p>We've partnered with a dedicated division specialising in solar product installation. As IS&amp;E, we also repair and recycle solar products &mdash; aligning with our commitment to sustainable, renewable energy and cost-effective alternatives. Our team is made up of skilled professionals who care about the quality of what they deliver.</p>
-      <p>We take pride in providing solutions that meet and exceed our clients' expectations, and we believe in using technology to build a more sustainable future.</p>
-      <p class="pullquote">We're more than just a solar company; <span>we're your partner</span> on the journey toward innovation and sustainability.</p>
+      <p>Innovative Solutions &amp; Electronics is a 100% black-owned ICT company committed to enabling Skills Development Providers (SDPs) to deliver quality, technology-driven learning.</p>
+      <p>We understand that modern training requires modern infrastructure. Our core service is equipping SDPs with reliable ICT Infrastructure to ensure seamless learning, assessment, and QCTO accreditation compliance.</p>
+      <p>In addition to our ICT solutions, we have a dedicated division specialising in the supply and installation of solar products. This ensures that your training centre remains operational and cost-efficient, with uninterrupted power for learning &mdash; aligning with sustainable and cost-effective energy solutions.</p>
+      <p>Our team consists of skilled ICT professionals passionate about empowering education through technology. We pride ourselves on delivering compliant, scalable, and innovative solutions that not only meet QCTO and SETA infrastructure requirements but exceed your operational expectations.</p>
+      <p class="pullquote">At Innovative Solutions &amp; Electronics, we are more than just an ICT supplier &mdash; <span>we are your strategic partner</span> in building a fully equipped, future-ready, and sustainable SDP.</p>
     </div>
   </div>
 </section>
@@ -601,28 +658,33 @@
 <section class="services section-pad" id="services">
   <div class="wrap">
     <p class="kicker">What we do</p>
-    <h2>Three ways we keep your energy running.</h2>
+    <h2>Everything your training centre needs to run.</h2>
     <div class="service-list">
       <div class="service-row">
         <div class="service-title">
           <svg class="hexmark" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1L28 8.5V21.5L15 25L2 21.5V8.5L15 1Z" stroke="#F2B33D" stroke-width="1.4"/></svg>
-          <h3>Solar solutions</h3>
+          <h3>Our ICT Solutions</h3>
         </div>
-        <p>We design solar systems around how a business or school actually operates &mdash; sizing, siting, and specifying equipment for real efficiency and long-term technological advancement, not a generic package.</p>
+        <ul>
+          <li><strong>Learner &amp; Facilitator Devices:</strong> High-performance laptops, desktops, projectors, and interactive whiteboards.</li>
+          <li><strong>Networking &amp; Connectivity:</strong> LAN/WAN setup, Wi-Fi installation for training centres, server configuration, and internet connectivity.</li>
+          <li><strong>Training Lab Setup:</strong> Complete computer lab setup, cabling, and technical support.</li>
+          <li><strong>E-Learning Enablement:</strong> Infrastructure to support LMS platforms, online assessments, and virtual classrooms.</li>
+        </ul>
       </div>
       <div class="service-row">
         <div class="service-title">
           <svg class="hexmark" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1L28 8.5V21.5L15 25L2 21.5V8.5L15 1Z" stroke="#F2B33D" stroke-width="1.4"/></svg>
-          <h3>Installation</h3>
+          <h3>Solar Solutions</h3>
         </div>
-        <p>Through our partnered installation division, systems are fitted by specialists in solar product installation &mdash; so the plan we design is the system you actually get on the roof.</p>
+        <p>Our dedicated solar division supplies and installs solar products, keeping your training centre running with uninterrupted, cost-efficient power for learning.</p>
       </div>
       <div class="service-row">
         <div class="service-title">
           <svg class="hexmark" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1L28 8.5V21.5L15 25L2 21.5V8.5L15 1Z" stroke="#F2B33D" stroke-width="1.4"/></svg>
-          <h3>Repair &amp; recycling</h3>
+          <h3>Your Strategic Partner</h3>
         </div>
-        <p>As IS&amp;E, we repair underperforming systems and recycle solar products at end of life, closing the loop on the renewable energy we install.</p>
+        <p>We're more than an ICT supplier. Our skilled team delivers compliant, scalable, and innovative solutions that meet QCTO and SETA infrastructure requirements and exceed your expectations, helping you build a fully equipped, future-ready, and sustainable SDP.</p>
       </div>
     </div>
   </div>
@@ -635,22 +697,34 @@
     <div class="mv-grid">
       <div class="mv-block">
         <h3>MISSION</h3>
-        <p>Developing sustainable solutions for stakeholders, while having a significant impact through investment &mdash; and ensuring that investment generates leverage and provides considerable returns.</p>
+        <p>Innovative Solutions &amp; Electronics is a 100% black-owned ICT company committed to enabling Skills Development Providers (SDPs) to deliver quality, technology-driven learning.</p>
+        <p>Our mission is to provide reliable, compliant, and scalable ICT infrastructure that ensures seamless learning, assessment, and QCTO accreditation compliance through:</p>
+        <ul class="vision-list">
+          <li>
+            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong>Equipping:</strong>&nbsp;Supplying high-performance Learner &amp; Facilitator Devices, Projectors, and Interactive Whiteboards.
+          </li>
+          <li>
+            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong>Connecting:</strong>&nbsp;Delivering full Networking &amp; Connectivity solutions including LAN/WAN, Wi-Fi, Server Configuration, and Internet.
+          </li>
+          <li>
+            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong>Enabling:</strong>&nbsp;Setting up complete Computer Labs and providing E-Learning infrastructure for LMS, Online Assessments, and Virtual Classrooms.
+          </li>
+          <li>
+            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong>Sustaining:</strong>&nbsp;Ensuring operational continuity through our dedicated solar products division, providing cost-effective and uninterrupted power for learning.
+          </li>
+        </ul>
+        <p>Driven by skilled ICT professionals, we deliver solutions that not only meet QCTO and SETA requirements but exceed operational expectations.</p>
       </div>
       <div class="mv-block">
         <h3>VISION</h3>
         <ul class="vision-list">
           <li>
             <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Become the leader of green energy in Southern Africa.
-          </li>
-          <li>
-            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Supply Southern Africa with cost- and environmentally-friendly energy that lets development take place.
-          </li>
-          <li>
-            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path d="M1 7L6 12L15 1" stroke="#C4881E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Create job opportunities for the youth.
+            To be the leading strategic ICT partner for Skills Development Providers (SDPs) in South Africa, enabling a future where every training centre is fully equipped, future-ready, compliant, and sustainably powered to deliver quality, technology-driven learning.
           </li>
         </ul>
       </div>
@@ -664,7 +738,6 @@
     <div class="contact-top">
       <div>
         <p class="kicker">Contact us</p>
-        <h2>Let's talk about your energy needs.</h2>
       </div>
       <p>Reach out for a site assessment, a quote, or to ask about repair and recycling for an existing system.</p>
     </div>
@@ -687,6 +760,10 @@
     </div>
   </div>
 </section>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none"><path d="M12 19V5" stroke="#15120D" stroke-width="2" stroke-linecap="round"/><path d="M5 12L12 5L19 12" stroke="#15120D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 
 <footer>
   <div class="wrap footer-inner">
@@ -757,6 +834,25 @@
       btn.setAttribute('aria-expanded', 'false');
       btn.setAttribute('aria-label', 'Open menu');
     });
+  });
+})();
+
+/* Back to top button */
+(function(){
+  var topBtn = document.getElementById('backToTop');
+  if(!topBtn) return;
+  var toggle = function(){
+    if(window.scrollY > window.innerHeight * 0.6){
+      topBtn.classList.add('show');
+    } else {
+      topBtn.classList.remove('show');
+    }
+  };
+  window.addEventListener('scroll', toggle, {passive:true});
+  window.addEventListener('resize', toggle);
+  toggle();
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
   });
 })();
 </script>
